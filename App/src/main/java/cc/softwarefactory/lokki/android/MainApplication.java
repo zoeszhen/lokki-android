@@ -25,6 +25,8 @@ public class MainApplication extends Application {
 
     private static final String TAG = "MainApplication";
 
+    //TESTCOMMENT 
+
 
     public static int[] mapTypes = {GoogleMap.MAP_TYPE_NORMAL, GoogleMap.MAP_TYPE_SATELLITE, GoogleMap.MAP_TYPE_HYBRID};
     public static int mapType = 0;
