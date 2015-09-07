@@ -12,7 +12,7 @@ import android.graphics.Bitmap;
 import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.support.v4.util.LruCache;
-import android.util.Log;
+//import android.util.Log;
 
 import com.google.android.gms.maps.GoogleMap;
 
@@ -24,9 +24,11 @@ import cc.softwarefactory.lokki.android.utilities.PreferenceUtils;
 
 public class MainApplication extends Application {
 
-    private static final boolean DEVELOPER_MODE = true;
+    private static final boolean DEVELOPER_MODE = false;
 
     private static final String TAG = "MainApplication";
+
+    //TESTCOMMENT 
 
 
     public static int[] mapTypes = {GoogleMap.MAP_TYPE_NORMAL, GoogleMap.MAP_TYPE_SATELLITE, GoogleMap.MAP_TYPE_HYBRID};
@@ -46,7 +48,7 @@ public class MainApplication extends Application {
     @Override
     public void onCreate() {
 
-        Log.e(TAG, "Lokki started component");
+        //Log.e(TAG, "Lokki started component");
 
         loadSetting();
 
@@ -70,12 +72,12 @@ public class MainApplication extends Application {
                 MainApplication.iDontWantToSee = new JSONObject(iDontWantToSeeString);
             } catch (JSONException e) {
                 MainApplication.iDontWantToSee = null;
-                Log.e(TAG, e.getMessage());
+                //Log.e(TAG, e.getMessage());
             }
         } else {
             MainApplication.iDontWantToSee = new JSONObject();
         }
-        Log.e(TAG, "MainApplication.iDontWantToSee: " + MainApplication.iDontWantToSee);
+        //Log.e(TAG, "MainApplication.iDontWantToSee: " + MainApplication.iDontWantToSee);
 
         if (DEVELOPER_MODE) {
 
@@ -97,7 +99,7 @@ public class MainApplication extends Application {
     private void loadSetting() {
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
         visible = PreferenceUtils.getBoolean(getApplicationContext(), PreferenceUtils.KEY_SETTING_VISIBILITY);
-        Log.e(TAG, "Visible: " + visible);
+        //Log.e(TAG, "Visible: " + visible);
     }
 
 }
