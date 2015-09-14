@@ -28,7 +28,7 @@
     <string name="add_contact_dialog_save">Haluatko lisätä %1$s?</string>
     <string name="i_can_see">Näytä kartalla</string>
     <string name="can_see_me">Saa nähdä minut</string>
-    <string name="your_lokki_id">Sinun Lokki ID on:</string>
+    <string name="your_lokki_id">Sinun Lokki-tunnuksesi on:</string>
     <string name="version">Versio: %1$s</string>
     <string name="i_agree">Olen lukenut ja hyväksyn</string>
     <string name="continue_with_terms">Jatka</string>
@@ -47,8 +47,8 @@
     <string name="terms_title">Käyttöehdot</string>
     <string name="security_sign_up">Meidän täytyy valtuuttaa tilinne ennen rekisteröintiä. Seuraa ohjeita, jotka olemme lähettäneet osoitteeseen: %1$s</string>
     <string name="title_activity_sign_up">Rekisteröidy</string>
-    <string name="sign_up_explanation">Kirjoita sähköpostiosoitteesi - muut Lokki käyttäjät löytävät sinut tällä osoitteella.</string>
-    <string name="type_your_email_address">Sinun sähköpostiosoite</string>
+    <string name="sign_up_explanation">Kirjoita sähköpostiosoitteesi - muut Lokki-käyttäjät löytävät sinut tällä osoitteella.</string>
+    <string name="type_your_email_address">Sähköpostiosoitteesi</string>
     <string name="general_error">Tapahtui virhe. Yritä uudelleen myöhemmin.</string>
     <string name="write_place_name">Anna paikalle nimi</string>
     <string name="delete_place">Haluatko varmasti poistaa tämän paikan?</string>
@@ -60,7 +60,7 @@
     <string name="place_limit_reached">Et voi luoda enempää paikkoja. Maksimiraja saavutettu.</string>
     <string name="you_are_visible">Olet nyt NÄKYVISSÄ</string>
     <string name="you_are_invisible">Olet nyt NÄKYMÄTÖN</string>
-    <string name="places_how_to_create">Luo uusi paikka painamalla haluamaasi sijaintia kartalla pitkään. Zoomaa karttaa paikan koon muuttamiseksi, syötä sitten paikan nimi ja paina OK.</string>
+    <string name="places_how_to_create">Luo uusi paikka painamalla pitkään haluamaasi sijaintia kartalla. Zoomaa karttaa paikan koon muuttamiseksi, syötä sitten paikan nimi ja paina OK.</string>
     <string name="search_contacts">Etsi henkilöitä…</string>
 
     <string name="map_mode_default">Oletus</string>
@@ -79,7 +79,7 @@
     <string name="contact_email_address">Henkilön sähköpostiosoite</string>
     <string name="add_email">Lisää email</string>
     <string name="place_name">Paikan nimi</string>
-    <string name="seeing_contact_not_allowed">Henkilö ei ole antanut sinulle lupaa nähdä heidän sijaintiaan.</string>
+    <string name="seeing_contact_not_allowed">Henkilö ei ole antanut sinulle lupaa nähdä sijaintiaan.</string>
     <string name="opt_in_text_analytics">Autan parantamaan Lokkia lähettämällä anonyymiä käyttödataa</string>
     <string name="opt_in_text_experiments">Haluan saada Lokin uusimmat kokeelliset ominaisuudet käyttööni</string>
     <string name="send_anonymous_usage_data">Lähetä anonyymiä käyttödataa</string>
