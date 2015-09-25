@@ -50,6 +50,7 @@
     <string name="title_activity_sign_up">Sign up or sign in</string>
     <string name="sign_up_explanation">Enter your email address - other Lokki users will find you with this address.</string>
     <string name="type_your_email_address">Your email address</string>
+    <string name="type_your_user_password">Your password</string>
     <string name="general_error">There was an error. Please try again later.</string>
     <string name="write_place_name">Enter a name for this place</string>
     <string name="delete_place">Do you want to remove this place?</string>
@@ -69,7 +70,8 @@
     <string name="map_mode_hybrid">Hybrid</string>
 
     <string name="about_link_tell_a_friend">Tell a friend about Lokki</string>
-    <string name="email_required">An email address is required.</string>
+    <string name="email_required">Email address is required.</string>
+    <string name="password_required">Password is required.</string>
     <string name="required">Required</string>
     <string name="place_name_already_in_use">Name is already in use</string>
     <string name="add_place">Add place</string>

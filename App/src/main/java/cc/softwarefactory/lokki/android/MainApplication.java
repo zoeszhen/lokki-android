@@ -43,6 +43,7 @@ public class MainApplication extends Application {
     public static String emailBeingTracked;
     public static JSONObject dashboard = null;
     public static String userAccount; // Email
+    public static String userPassowrd;//password
     public static JSONObject contacts;
     public static JSONObject mapping;
     public static JSONObject iDontWantToSee;

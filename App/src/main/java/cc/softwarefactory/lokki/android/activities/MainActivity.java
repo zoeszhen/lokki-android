@@ -211,6 +211,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
     private void checkIfUserIsLoggedIn() {
 
         String userAccount = PreferenceUtils.getString(this, PreferenceUtils.KEY_USER_ACCOUNT);
+        String userPassword = PreferenceUtils.getString(this, PreferenceUtils.KEY_USER_PASSWORD);
         String userId = PreferenceUtils.getString(this, PreferenceUtils.KEY_USER_ID);
         String authorizationToken = PreferenceUtils.getString(this, PreferenceUtils.KEY_AUTH_TOKEN);
         boolean debug = false;
@@ -224,6 +225,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
             }
         } else { // User already logged-in
             MainApplication.userAccount = userAccount;
+            MainApplication.userPassowrd = userPassword;
             GcmHelper.start(getApplicationContext()); // Register to GCM
 
             Log.i(TAG, "User email: " + userAccount);
@@ -480,7 +482,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
 
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
             alertDialog.setTitle(getString(R.string.app_name));
-            String message = getString(R.string.security_sign_up, MainApplication.userAccount);
+            String message = getString(R.string.security_sign_up, MainApplication.userAccount,MainApplication.userPassowrd);
             alertDialog.setMessage(message)
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override

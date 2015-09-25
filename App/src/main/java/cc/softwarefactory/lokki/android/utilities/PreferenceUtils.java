@@ -9,6 +9,7 @@ public class PreferenceUtils {
 
     public static final String KEY_AUTH_TOKEN = "authorizationToken";
     public static final String KEY_USER_ACCOUNT = "userAccount";
+    public static final String KEY_USER_PASSWORD = "userPassword";
     public static final String KEY_USER_ID = "userId";
     public static final String KEY_CONTACTS = "contacts";
     public static final String KEY_I_DONT_WANT_TO_SEE = "iDontWantToSee";

@@ -33,7 +33,7 @@ import cc.softwarefactory.lokki.android.utilities.Utils;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    private static final int REQUEST_CODE_EMAIL = 1010;
+    private static final int REQUEST_CODE_EMAIL_PASSWORD = 1010;
     private static final String TAG = "SignUpActivity";
     private AQuery aq;
 
@@ -46,7 +46,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         try {
             Intent intent = AccountPicker.newChooseAccountIntent(null, null, new String[]{GoogleAuthUtil.GOOGLE_ACCOUNT_TYPE}, false, null, null, null, null);
-            startActivityForResult(intent, REQUEST_CODE_EMAIL);
+            startActivityForResult(intent, REQUEST_CODE_EMAIL_PASSWORD );
 
         } catch (ActivityNotFoundException anf) {
             // No problem. Simply don't do anything
@@ -63,6 +63,19 @@ public class SignUpActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        /*aq.id(R.id.password).getEditText().setOnEditorActionListener(new TextView.OnEditorActionListener() {
+              @Override
+              public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                  if (actionId == EditorInfo.IME_ACTION_DONE) {
+                      doSignUp();
+                      return true;
+                  }
+
+                  return false;
+              }
+          });*/
+
     }
 
     @Override
@@ -80,7 +93,7 @@ public class SignUpActivity extends AppCompatActivity {
         }
         Log.d(TAG, "onActivityResult. Data: " + data.getExtras());
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE_EMAIL && resultCode == RESULT_OK) {
+        if (requestCode == REQUEST_CODE_EMAIL_PASSWORD  && resultCode == RESULT_OK) {
             String accountName = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
             if (accountName != null) {
                 aq.id(R.id.email).text(accountName);
@@ -97,19 +110,29 @@ public class SignUpActivity extends AppCompatActivity {
                 getString(R.string.analytics_action_started_by_client));
         Log.d(TAG, "Sign up started");
         CharSequence email = aq.id(R.id.email).getText();
-        if (email == null) {
+        CharSequence password=aq.id(R.id.password).getText();
+        if (email == null||password==null) {
             return;
         }
         String accountName = email.toString();
+        String accountPassword= password.toString();
         Log.d(TAG, "Email: " + accountName);
         if (accountName.isEmpty()) {
             String errorMessage = getString(R.string.email_required);
             aq.id(R.id.email).getEditText().setError(errorMessage);
             return;
         }
+        if (accountName.isEmpty()) {
+            String errorMessage = getString(R.string.password_required);
+            aq.id(R.id.password).getEditText().setError(errorMessage);
+            return;
+        }
+
         PreferenceUtils.setString(this, PreferenceUtils.KEY_USER_ACCOUNT, accountName);
+        PreferenceUtils.setString(this, PreferenceUtils.KEY_USER_PASSWORD,accountPassword);
         PreferenceUtils.setString(this, PreferenceUtils.KEY_DEVICE_ID, Utils.getDeviceId());
         MainApplication.userAccount = accountName;
+        MainApplication.userPassowrd =accountPassword;
 
         ServerApi.signUp(this, new SignUpCallback());
         toggleLoading(true);
