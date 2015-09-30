@@ -4,6 +4,9 @@ See LICENSE for details
 */
 package cc.softwarefactory.lokki.android.activities;
 
+import android.app.SearchManager;
+import android.content.ComponentName;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
@@ -18,15 +21,18 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.SearchView;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
+
 import android.widget.Toast;
 
 import com.androidquery.AQuery;
@@ -93,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
 
         // Set up the callback for the user menu button
         AQuery aq = new AQuery(findViewById(R.id.drawer_layout));
+
         aq.id(R.id.user_popout_menu_button).clicked(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -299,6 +306,17 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
+      getMenuInflater().inflate(R.menu.map,menu);
+        SearchView searchView=(SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.search));
+
+        // Get the SearchView and set the searchable configuration
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        //SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
+        // Assumes current activity is the searchable activity
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(new ComponentName(this,SearchActivity.class)));
+        Log.d(TAG,"searchManager" + searchManager.getSearchableInfo(new ComponentName(this,SearchActivity.class)));
+        searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
+
         return true;
     }
 
@@ -309,8 +327,13 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
         menu.clear();
         if (mNavigationDrawerFragment != null && !mNavigationDrawerFragment.isDrawerOpen()) {
             if (selectedOption == 0) { // Map
+
                 getMenuInflater().inflate(R.menu.map, menu);
+                onSearchRequested();
                 MenuItem menuItem = menu.findItem(R.id.action_visibility);
+
+
+
                 if (menuItem != null) {
                     Log.d(TAG, "onPrepareOptionsMenu - Visible: " + MainApplication.visible);
                     if (MainApplication.visible) {
@@ -324,6 +347,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
             } else if (selectedOption == -10) { // Add contacts screen
                 getMenuInflater().inflate(R.menu.add_contact, menu);
             }
+
         }
         return super.onPrepareOptionsMenu(menu);
     }
