@@ -41,7 +41,6 @@ public class MainApplication extends Application {
      * TODO: make private with proper accessor methods to disallow values not in mapTypes
      */
     public static int mapType = 0;
-    public static String mapValue;
     public static String emailBeingTracked;
     /**
      * User dashboard JSON object. Format:
@@ -65,28 +64,6 @@ public class MainApplication extends Application {
      */
     public static JSONObject dashboard = null;
     public static String userAccount; // Email
-    /**
-     * User's contacts. Format:
-     * {
-     *      "test.friend@example.com": {
-     *          "id":1,
-     *          "name":"Test Friend"
-     *      },
-     *      "family.member@example.com":{
-     *          "id":2,
-     *          "name":"Family Member"
-     *      },
-     *      "work.buddy@example.com":{
-     *          "id":3,
-     *          "name":"Work Buddy"
-     *      },
-     *      "mapping":{
-     *          "Test Friend":"test.friend@example.com",
-     *          "Family Member":"family.member@example.com",
-     *          "Work Buddy":"work.buddy@example.com"
-     *      }
-     * }
-     */
     public static JSONObject contacts;
     /**
      * Format:

@@ -52,11 +52,20 @@
         android:layout_centerHorizontal="true"
         android:hint="@string/type_your_email_address" />
 
+    <EditText
+        android:id="@+id/password"
+        android:inputType="textPassword"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/email"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/type_your_user_password" />
+
     <Button
         android:id="@+id/sign_up_button"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/email"
+        android:layout_below="@id/password"
         android:layout_centerHorizontal="true"
         android:onClick="signUpClick"
         android:text="@string/title_activity_sign_up" />

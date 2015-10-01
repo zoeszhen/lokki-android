@@ -4,9 +4,6 @@ See LICENSE for details
 */
 package cc.softwarefactory.lokki.android.activities;
 
-import android.app.SearchManager;
-import android.content.ComponentName;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
@@ -21,18 +18,15 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.widget.SearchView;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
-
 import android.widget.Toast;
 
 import com.androidquery.AQuery;
@@ -254,7 +248,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
                 finish();
             }
         } else { // User already logged-in
-            MainApplication.userAccount = PreferenceUtils.getString(this, PreferenceUtils.KEY_USER_ACCOUNT);
+            MainApplication.userAccount = userAccount;
             GcmHelper.start(getApplicationContext()); // Register to GCM
         }
     }
